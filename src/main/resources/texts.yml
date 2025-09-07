@@ -1,0 +1,21 @@
+# TntChat Plugin Translations
+# You can customize these messages as needed
+
+# Plugin status messages
+plugin-enabled: "TntChat plugin has been enabled!"
+plugin-disabled: "TntChat plugin has been disabled!"
+
+# TNT types
+tnt-block: "TNT Block"
+tnt-minecart: "TNT Minecart"
+
+# Message formats
+coordinates-format: "X: %d, Y: %d, Z: %d"
+chat-message: "&e%player% has placed a %tnt_type%! Coordinates: &c%coordinates%"
+log-message: "[TNT] %player% has placed a %tnt_type%! Coordinates: %coordinates%"
+
+# Command messages
+no-permission: "You don't have permission to use this command!"
+no-logs-found: "No TNT logs found."
+no-logs-today: "No TNT activities logged today."
+error-reading-logs: "Error reading log files."

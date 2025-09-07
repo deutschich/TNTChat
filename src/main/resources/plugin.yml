@@ -1,4 +1,19 @@
-name: TNTChat
-version: '1.0-SNAPSHOT'
-main: com.user404_.tNTChat.TNTChat
+name: TntChat
+version: 1.0.0
+main: com.user404_.tntchat.TNTChat
 api-version: '1.21'
+authors: [deutschich aka User404]
+description: Sends a message when TNT or TNT minecarts are placed with logging and admin commands
+
+commands:
+  tntinfo:
+    description: Shows TNT activities of the last 24 hours
+    usage: /tntinfo
+
+permissions:
+  tntchat.use:
+    description: Allows using the TntChat plugin
+    default: true
+  tntchat.info:
+    description: Allows using the /tntinfo command
+    default: op
