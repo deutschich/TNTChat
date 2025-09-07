@@ -1,0 +1,4 @@
+name: TNTChat
+version: '1.0-SNAPSHOT'
+main: com.user404_.tNTChat.TNTChat
+api-version: '1.21'
