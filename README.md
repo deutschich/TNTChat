@@ -20,7 +20,7 @@ Messages are shown directly in the **chat**, in the **console**, and also saved 
 ---
 
 ## 📥 Installation
-1. Download the latest release from [Releases](https://github.com/YOURNAME/TNTChat/releases)  
+1. Download the latest release from [Releases](https://github.com/deutschich/TNTChat/releases)  
 2. Drop the `.jar` into your server’s `plugins/` folder  
 3. Restart your server  
 4. Done! 🎉  
