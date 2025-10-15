@@ -1,0 +1,47 @@
+name: Release on Merge to Master
+
+on:
+  push:
+    branches:
+      - master  # oder "main", je nach Repo
+    paths-ignore:
+      - '**.md'     # ignoriert reine Dokumentationsänderungen
+      - '.github/**' # ignoriert Änderungen an Actions selbst
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Get version
+        id: get_version
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: "Release v${{ steps.get_version.outputs.version }}"
+          body: |
+            **v${{ steps.get_version.outputs.version }}**
+            - Commit: ${{ github.sha }}
+            - Branch: ${{ github.ref_name }}
+            - Version: v${{ steps.get_version.outputs.version }}
+          files: |
+            target/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
